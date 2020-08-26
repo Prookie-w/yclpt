@@ -12,7 +12,7 @@ class LoginHandle(object):
         self.login_p.get_password_element().send_keys(password)
 
     def click_login(self):
-        pass
+        self.login_p.get_submit_element().click()
 
     def get_error_info(self):
         self.login_p.get_error_text()
