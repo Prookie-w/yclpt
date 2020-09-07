@@ -14,5 +14,8 @@ class LoginPage(object):
     def get_submit_element(self):
         return self.find_e.get_element("submit_button")
 
-    def get_error_text(self):
-        return self.find_e.get_element("error")
+    def get_error_element(self):
+        return self.find_e.get_element("error_text")
+
+    def get_title_element(self):
+        return self.find_e.get_element("title")
