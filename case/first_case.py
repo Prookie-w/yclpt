@@ -15,6 +15,7 @@ class FirstCase(unittest.TestCase):
 
     def test_login_password_error(self):
         password_error = self.login.login_password_error("34", "111")
+        self.assertFalse(password_error, "成功")
         if password_error == True:
             print("登录成功")
         
@@ -36,4 +37,4 @@ def  main():
 
 
 if __name__ == '__main__':
-    pass
+    unittest.main()
