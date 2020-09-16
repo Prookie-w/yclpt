@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
 from base.read_ini import ReadIni
 class FindElement(object):
     def __init__(self, driver):

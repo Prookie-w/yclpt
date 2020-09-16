@@ -8,6 +8,8 @@ class BrowserDriver():
     IE_driver_path = os.path.join(dir, "IEDriverServer.exe")
     Firfox_driver_path = os.path.join(dir, "geckodriver.exe")
     safe360_driver_path = os.path.join(dir, "360", "chromedriver.exe")
+    home_driver_path = os.path.join(dir, "home", "chromedriver.exe")
+
     def __init__(self, driver):
         self.driver = driver
 
@@ -23,9 +25,11 @@ class BrowserDriver():
             option = webdriver.ChromeOptions()
             option.binary_location = _brower_url
             self.driver = webdriver.Chrome(options=option, executable_path=option.binary_location)
+        elif browserType == "home":
+            self.driver = webdriver.Chrome(self.home_driver_path)
         else:
             print("参数错误")
-        self.driver.implicitly_wait(5)
         self.driver.get(url)
         self.driver.maximize_window()
+        self.driver.implicitly_wait(5)
         return self.driver

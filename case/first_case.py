@@ -1,8 +1,9 @@
 #!/usr/bin/env python 
 # -*- coding:utf-8 -*-
-from business.register_business import RegisterBusiness
+from business.login_business import RegisterBusiness
 from selenium import webdriver
 import unittest
+import os
 class FirstCase(unittest.TestCase):
     def setup(self):
         self.driver = webdriver.Chrome()
@@ -10,6 +11,11 @@ class FirstCase(unittest.TestCase):
         self.login = RegisterBusiness(self.driver)
 
     def tearDown(self):
+        for method_name, error in self._outcome.errors:
+            if error:
+                case_name = self._testMethodName
+                file_path = os.path.join(os.getcwd() + "report" + case_name)
+                self.driver.save_screenshot(file_path)
         self.driver.close()
         print("houzhi")
 

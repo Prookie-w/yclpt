@@ -22,7 +22,6 @@ class FirstClass01(unittest.TestCase):
     def testfirst01(self):
         a = False
         self.assertFalse(a, "执行了")
-        io.Stri
         print("11")
 
     def testfirst02(self):
@@ -32,7 +31,7 @@ class FirstClass01(unittest.TestCase):
 
 if __name__ == '__main__':
     #unittest.main()
-    file_path = os.path.join(os.getcwd() + r"\report\u_case.html")
+    file_path = os.path.join(r"E:\work\code\report\u_case.html")
     print(file_path)
     f = open(file_path, 'wb')
     suit = unittest.TestSuite()

@@ -1,7 +1,7 @@
 #!/usr/bin/env python 
 # -*- coding:utf-8 -*-
 from handle.register_handle import LoginHandle
-class RegisterBusiness(object):
+class LoginBusiness(object):
     def __init__(self, driver):
         self.login = LoginHandle(driver)
 
@@ -13,7 +13,7 @@ class RegisterBusiness(object):
     #执行操作
     def login_username_error(self, username, password):
         self.login_base(username, password)
-        if self.login.get_error_info() == "用户名错误":
+        if self.login.get_error_info() == "您输入的用户名或密码错误，请重新输入。":
             print("用户名错误")
             return True
         else:
