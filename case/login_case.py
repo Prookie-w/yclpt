@@ -14,6 +14,7 @@ class LoginCase(unittest.TestCase):
 
     @classmethod
     def tearDownClass(self):
+        for method_name, error in self._outcome.error():
         self.driver.close()
 
     def test_login_username_error(self):
