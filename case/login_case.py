@@ -5,6 +5,7 @@ from base.browser_driver import BrowserDriver
 from business.login_business import LoginBusiness
 import os
 import HTMLTestRunner
+from unit.screenshot import ScreenShot
 class LoginCase(unittest.TestCase):
     @classmethod
     def setUpClass(self):
@@ -14,7 +15,7 @@ class LoginCase(unittest.TestCase):
 
     @classmethod
     def tearDownClass(self):
-        for method_name, error in self._outcome.error():
+        ScreenShot(self.driver).shot()
         self.driver.close()
 
     def test_login_username_error(self):
