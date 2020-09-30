@@ -9,7 +9,7 @@ from unit.screenshot import ScreenShot
 class LoginCase(unittest.TestCase):
     @classmethod
     def setUpClass(self):
-        self.driver = BrowserDriver(object).open_browser("home", "http://172.23.23.223:8080/yclpt")
+        self.driver = BrowserDriver(object).open_browser("Chrome", "http://172.23.23.223:8080/yclpt")
         self.driver.maximize_window()
         self.login = LoginBusiness(self.driver)
 

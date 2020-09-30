@@ -3,10 +3,12 @@
 import os
 import time
 class ScreenShot():
+
     def __init__(self, driver):
         self.driver = driver
-    @classmethod
-    def makedir(cls, file_path):
+
+    @staticmethod
+    def makedir(file_path):
         try:
             if not os.path.exists(file_path):
                 os.makedirs(file_path)
