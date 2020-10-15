@@ -11,6 +11,10 @@ class FindElement(object):
         data =read_ini.get_value(key)
         by = data.split(">")[0]
         value = data.split(">")[1]
+        print("1111" + read_ini)
+        print("2222" + data)
+        print("3333" + by)
+        print("4444" + value)
         try:
             if by == 'id':
                 return self.driver.find_element_by_id(value)

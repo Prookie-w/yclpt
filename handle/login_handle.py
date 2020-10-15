@@ -19,5 +19,5 @@ class LoginHandle(object):
         return text
 
     def get_login_info(self):
-        text = self.login_page.get_title_element()
+        text = self.login_page.get_title_element().text
         return text

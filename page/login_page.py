@@ -18,4 +18,7 @@ class LoginPage(object):
         return self.find_e.get_element("error_text")
 
     def get_title_element(self):
-        return self.find_e.get_element("title")
+        print('bb')
+        aa = self.find_e.get_element("title")
+        print(aa)
+        #return self.find_e.get_element("title")

@@ -1,6 +1,7 @@
 #!/usr/bin/env python 
 # -*- coding:utf-8 -*-
 from handle.login_handle import LoginHandle
+import time
 class LoginBusiness(object):
     def __init__(self, driver):
         self.login = LoginHandle(driver)
@@ -29,7 +30,10 @@ class LoginBusiness(object):
 
     def login_success(self, username, password):
         self.login_base(username, password)
-        if self.login.get_login_info() == "预处理平台":
+        time.sleep(3)
+        text = self.login.get_login_info()
+        print(text)
+        if text == "预处理平台":
             print("登录成功")
             return True
         else:

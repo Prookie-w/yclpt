@@ -28,11 +28,17 @@ class LoginCase(unittest.TestCase):
         password_error = self.login.login_password_error("wangq", "123456789")
         self.assertTrue(password_error, "用例执行失败")
 
+    def test_login_success(self):
+        print('aasdadasdas')
+        message = self.login.login_success("songll", "12345678Aa")
+        self.assertTrue(message, "用例执行失败")
+
 if __name__ == '__main__':
     report_path = os.path.join(os.path.dirname(os.getcwd()), "report", "u_case.html")
     f = open(report_path, 'wb')
     suit = unittest.TestSuite()
-    suit.addTest(LoginCase("test_login_username_error"))
-    suit.addTest(LoginCase("test_login_password_error"))
+    #suit.addTest(LoginCase("test_login_username_error"))
+    #suit.addTest(LoginCase("test_login_password_error"))
+    suit.addTest(LoginCase("test_login_success"))
     runner = HTMLTestRunner.HTMLTestRunner(stream=f, title="测试报告", description=u"预处理的测试报告", verbosity=2)
     runner.run(suit)
