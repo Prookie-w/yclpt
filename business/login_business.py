@@ -5,6 +5,7 @@ import time
 class LoginBusiness(object):
     def __init__(self, driver):
         self.login = LoginHandle(driver)
+        self.driver =driver
 
     def login_base(self, username, password):
         self.login.send_username(username)
@@ -31,7 +32,7 @@ class LoginBusiness(object):
     def login_success(self, username, password):
         self.login_base(username, password)
         time.sleep(3)
-        text = self.login.get_login_info()
+        text = self.driver.title
         print(text)
         if text == "预处理平台":
             print("登录成功")

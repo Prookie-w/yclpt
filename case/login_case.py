@@ -9,7 +9,7 @@ from unit.screenshot import ScreenShot
 class LoginCase(unittest.TestCase):
 
     def setUp(self):
-        self.driver = BrowserDriver(object).open_browser("Chrome", "http://172.23.23.223:8080/yclpt")
+        self.driver = BrowserDriver(object).open_browser("home", "http://172.23.23.223:8080/yclpt")
         self.driver.maximize_window()
         self.login = LoginBusiness(self.driver)
 
@@ -37,8 +37,8 @@ if __name__ == '__main__':
     report_path = os.path.join(os.path.dirname(os.getcwd()), "report", "u_case.html")
     f = open(report_path, 'wb')
     suit = unittest.TestSuite()
-    #suit.addTest(LoginCase("test_login_username_error"))
-    #suit.addTest(LoginCase("test_login_password_error"))
+    suit.addTest(LoginCase("test_login_username_error"))
+    suit.addTest(LoginCase("test_login_password_error"))
     suit.addTest(LoginCase("test_login_success"))
     runner = HTMLTestRunner.HTMLTestRunner(stream=f, title="测试报告", description=u"预处理的测试报告", verbosity=2)
     runner.run(suit)

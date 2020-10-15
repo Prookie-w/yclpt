@@ -15,12 +15,13 @@ class wyf():
             print(local, 'is', floor)
 
     def css_test(self):
-        driver = BrowserDriver(object).open_browser("Chrome", "http://172.23.23.223:8080/yclpt")
+        driver = BrowserDriver(object).open_browser("home", "http://172.23.23.223:8080/yclpt")
         driver.maximize_window()
         LoginBusiness(driver).login_base("songll", "12345678Aa")
-        time.sleep(3)
-        message = FindElement(driver, "LoginElement").get_element("title")
-        print(message)
+        time.sleep(5)
+        msg = FindElement(driver, "zzlwElement").get_element("ptsw_button").get_attribute("type")
+        print(msg)
+
 
 if __name__ == '__main__':
     #wyf().info(10, 1, 2, 3, 4, 5, heida=31, suning=22, huayu=77)

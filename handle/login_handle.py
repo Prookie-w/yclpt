@@ -18,6 +18,3 @@ class LoginHandle(object):
         text = self.login_page.get_error_element().text
         return text
 
-    def get_login_info(self):
-        text = self.login_page.get_title_element().text
-        return text
