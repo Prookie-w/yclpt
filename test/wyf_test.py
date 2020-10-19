@@ -15,10 +15,11 @@ class wyf():
             print(local, 'is', floor)
 
     def css_test(self):
-        driver = BrowserDriver(object).open_browser("home", "http://172.23.23.223:8080/yclpt")
+        driver = BrowserDriver(object).open_browser("Chrome", "http://172.23.22.179:8080/yclpt")
+        #driver = BrowserDriver(object).open_browser("home", "http://172.23.22.179:8080/yclpt")
         driver.maximize_window()
         LoginBusiness(driver).login_base("songll", "12345678Aa")
-        time.sleep(5)
+        driver.implicitly_wait(10)
         msg = FindElement(driver, "zzlwElement").get_element("ptsw_button").get_attribute("type")
         print(msg)
 
