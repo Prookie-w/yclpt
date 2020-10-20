@@ -15,4 +15,9 @@ service:用例的所有操作集\
 handle:用例的一步操作\
 page:以页面为单位维护页面元素的获取方法\
 
+## 安装的插件
+1、lxml
+2、cssselect
+3、selenium
+
 

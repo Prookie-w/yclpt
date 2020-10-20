@@ -9,8 +9,8 @@ class FindElement(object):
     def get_element(self, key):
         read_ini = ReadIni(node=self.node)
         data =read_ini.get_value(key)
-        by = data.split(">")[0]
-        value = data.split(">")[1]
+        by = data.split("/")[0]
+        value = data.split("/")[1]
         try:
             if by == 'id':
                 return self.driver.find_element_by_id(value)
