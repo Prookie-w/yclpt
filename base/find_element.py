@@ -6,29 +6,38 @@ class FindElement(object):
         self.driver = driver
         self.node = node
 
+    def split(self, key):
+        locator = ReadIni(node=self.node)
+        data = locator.get_value(key).split(",")
+        lenth = len(data)
+        by = data[0]
+        value = data[1]
+        locator_dict = {
+            'id': 'id',
+            'name': 'name',
+            'class': 'class name',
+            'tag': 'tag name',
+            'link': 'link text',
+            'plink': 'partial link text',
+            'xpath': 'xpath',
+            'css': 'css selector',
+        }
+        if by not in locator_dict.keys():
+            return None
+        if lenth == 2:
+            return locator_dict[by], value, None
+        elif lenth == 3:
+            return locator_dict[by], value, int(data[2])
+
     def get_element(self, key):
-        read_ini = ReadIni(node=self.node)
-        data =read_ini.get_value(key)
-        by = data.split("/")[0]
-        value = data.split("/")[1]
+        by, value, num = self.split(key)
         try:
-            if by == 'id':
-                return self.driver.find_element_by_id(value)
-            elif by == "name":
-                return self.driver.find_element_by_name(value)
-            elif by == "class_name":
-                return self.driver.find_element_by_class_name(value)
-            elif by == "tag_name":
-                return self.driver.find_element_by_tag_name(value)
-            elif by == "xpath":
-                return self.driver.find_element_by_xpath(value)
-            elif by == "link_text":
-                return self.driver.find_element_by_link_text(value)
-            elif by == "partial_link_text":
-                return self.driver.find_element_by_partial_link_text(value)
-            elif by =="css_selector":
-                return self.driver.find_element_by_css_selector(value)
+            if num == None:
+                return self.driver.find_element(by, value)
+            elif isinstance(num, int):
+                return self.driver.find_elements(by, value)[num]
+            else:
+                return None
         except:
             return None
-
 
