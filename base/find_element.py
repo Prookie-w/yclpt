@@ -38,6 +38,6 @@ class FindElement(object):
                 return self.driver.find_elements(by, value)[num]
             else:
                 return None
-        except:
+        except Exception:
             return None
 
