@@ -8,7 +8,7 @@ class FindElement(object):
 
     def split(self, key):
         locator = ReadIni(node=self.node)
-        data = locator.get_value(key).split(",")
+        data = locator.get_value(key).split("|")
         lenth = len(data)
         by = data[0]
         value = data[1]

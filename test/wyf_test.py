@@ -40,16 +40,28 @@ class wyf():
         LoginBusiness(driver).login_base("songll", "12345678Aa")
         driver.implicitly_wait(10)
         PtswHandle(driver).click_ptsw()
+        c = driver.current_window_handle
         windows = driver.window_handles
-        driver.switch_to.window(windows[1])
+        print(c)
+        print(windows)
+        driver.switch_to.window(windows[-1])
+        print(driver.current_window_handle)
         print(driver.title)
         js = 'swdjVo.cbt=1231321'
         driver.execute_script(js)
         time.sleep(2)
         css = 'css selector'
-        msg1 = driver.find_elements(css, 'input[class$=\'aty-input-default\']')[7]
+        driver.find_elements(css, 'input[class$=\'aty-input-default\']')[7]
         FindElement(driver, "SwdjElement").get_element("bt").send_keys("zxcvzxvzxcvxzv")
-        time.sleep(5)
+        FindElement(driver, "SwdjElement").get_element("swh").click()
+        time.sleep(1)
+        FindElement(driver, "SwdjElement").get_element("swhlist").click()
+        FindElement(driver, "SwdjElement").get_element("lwdw").send_keys("上海")
+        time.sleep(3)
+        #FindElement(driver, "SwdjElement").get_element("lwdwlist").click()
+        msg = driver.find_element_by_xpath("//div[contains(@class,'lwdw')]/ul/li[1]")
+        print(msg)
+        time.sleep(3)
 
 
 

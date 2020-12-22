@@ -4,19 +4,23 @@ import unittest
 from base.browser_driver import BrowserDriver
 from business.login_business import LoginBusiness
 from unit.screenshot import ScreenShot
-from  business.ptsw_buiness import PtswBuiness
+from business.ptsw_buiness import PtswBuiness
+import os
+import HTMLTestRunner
 
 
-class ptswCase(unittest.TestCase):
-    def setUpClass(cls):
-        cls.driver = BrowserDriver(object).open_browser("Chrome", "http://172.23.23.223:8080/yclpt")
-        cls.driver.maximize_window()
-        cls.login = LoginBusiness(cls.driver)
-        cls.ptsw = PtswBuiness(cls.driver)
-        cls.login.login_base("songll", "12345678Aa")
+class PtswCase(unittest.TestCase):
+    @classmethod
+    def setUpClass(self):
+        self.driver = BrowserDriver(object).open_browser("Chrome", "http://172.23.22.179:8080/yclpt")
+        self.driver.maximize_window()
+        self.login = LoginBusiness(self.driver)
+        self.ptsw = PtswBuiness(self.driver)
+        self.login.login_base("songll", "12345678Aa")
 
-    def tearDownClass(cls):
-        cls.driver.close()
+    @classmethod
+    def tearDownClass(self):
+        self.driver.quit()
 
     def tearDown(self):
         for method_name, error in self._outcome.errors:
@@ -25,6 +29,15 @@ class ptswCase(unittest.TestCase):
                 ScreenShot(self.driver).shot(case_name)
 
     def test_ptsw_save(self):
-        self.ptsw.ptsw_save()
+        bt = "wyftest"
+        file_path = "C:\\Users\\huayu\\Desktop\\nmon16e_mpginc.tar.gz"
+        self.ptsw.ptsw_save(bt, file_path, lwdw="上海", lwh="沪", lwhm="（20201124）号", btlx='nbd')
 
 
+if __name__ == '__main__':
+    report_path = os.path.join(os.path.dirname(os.getcwd()), "report", "u_case.html")
+    f = open(report_path, 'wb')
+    suit = unittest.TestSuite()
+    suit.addTest(PtswCase("test_ptsw_save"))
+    runner = HTMLTestRunner.HTMLTestRunner(stream=f, title="测试报告", description=u"预处理的测试报告", verbosity=2)
+    runner.run(suit)
