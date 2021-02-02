@@ -4,7 +4,7 @@ from base.browser_driver import BrowserDriver
 from business.login_business import LoginBusiness
 import time
 from base.find_element import FindElement
-from handle.ptsw_handle import PtswHandle
+from handle.swdj_handle import PtswHandle
 class wyf():
 
     def info(self, a, *name, **addr):

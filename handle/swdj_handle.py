@@ -1,19 +1,13 @@
 #!/usr/bin/env python 
 # -*- coding:utf-8 -*-
-from page.index_page import IndexPage
 from page.swdj_page import SwdjPage
-from selenium.webdriver.common.keys import Keys
 import time
 from unit.upload_file import UploadFile
 
 
-class PtswHandle(object):
+class SwdjHandle(object):
     def __init__(self, driver):
-        self.index_page = IndexPage(driver)
         self.swdj_page = SwdjPage(driver)
-
-    def click_ptsw(self):
-        self.index_page.get_ptsw_button().send_keys(Keys.ENTER)
 
     def fill_in_form(self, bt, **form):
         self.swdj_page.get_swh_element().click()
@@ -36,14 +30,10 @@ class PtswHandle(object):
             elif 'nbd' == form.get("btlx"):
                 self.swdj_page.get_nbd_element().click()
         self.swdj_page.get_bt_element().send_keys(bt)
-        self.swdj_page.get_mj_element().click()
+        #self.swdj_page.get_mj_element().click()
         time.sleep(1)
-        self.swdj_page.get_mjlist_element().click()
-        #self.swdj_page.get_fs_element().send_keys("20")
-
-
-
-
+        #self.swdj_page.get_mjlist_element().click()
+        self.swdj_page.get_fs_element().send_keys("20")
 
     def upload_file(self, file_path):
         self.swdj_page.get_bdsc_element().click()
