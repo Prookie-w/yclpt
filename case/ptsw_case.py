@@ -27,10 +27,12 @@ class PtswCase(unittest.TestCase):
             if error:
                 case_name = str(method_name).split("(")[0]
                 ScreenShot(self.driver).shot(case_name)
+        self.driver.close()
 
     def test_ptsw_save(self):
         bt = "wyftest"
-        file_path = "C:\\Users\\huayu\\Desktop\\nmon16e_mpginc.tar.gz"
+        #file_path = "C:\\Users\\huayu\\Desktop\\nmon16e_mpginc.tar.gz"
+        file_path = "D:\\baiduNetDiskDownload\\test.txt"
         self.ptsw.ptsw_save(bt, file_path, lwdw="上海", lwh="沪", lwhm="（20201124）号", btlx='nbd')
 
 

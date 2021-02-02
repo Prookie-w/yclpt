@@ -16,7 +16,6 @@ class PtswHandle(object):
         self.index_page.get_ptsw_button().send_keys(Keys.ENTER)
 
     def fill_in_form(self, bt, **form):
-        self.swdj_page.get_bt_element().send_keys(bt)
         self.swdj_page.get_swh_element().click()
         time.sleep(1)
         self.swdj_page.get_swhlist_element().click()
@@ -36,6 +35,15 @@ class PtswHandle(object):
                 self.swdj_page.get_psj_element().click()
             elif 'nbd' == form.get("btlx"):
                 self.swdj_page.get_nbd_element().click()
+        self.swdj_page.get_bt_element().send_keys(bt)
+        self.swdj_page.get_mj_element().click()
+        time.sleep(1)
+        self.swdj_page.get_mjlist_element().click()
+        #self.swdj_page.get_fs_element().send_keys("20")
+
+
+
+
 
     def upload_file(self, file_path):
         self.swdj_page.get_bdsc_element().click()

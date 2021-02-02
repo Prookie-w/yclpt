@@ -39,3 +39,12 @@ class SwdjPage(object):
 
     def get_nbd_element(self):
         return self.find_e.get_element("nbd")
+
+    def get_mj_element(self):
+        return self.find_e.get_element("mj")
+
+    def get_mjlist_element(self):
+        return self.find_e.get_element("mjlist")
+
+    def get_fs_element(self):
+        return self.find_e.get_element("fs")

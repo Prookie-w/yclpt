@@ -2,7 +2,6 @@
 # -*- coding:utf-8 -*-
 from base.browser_driver import BrowserDriver
 from business.login_business import LoginBusiness
-from lxml.html import etree
 import time
 from base.find_element import FindElement
 from handle.ptsw_handle import PtswHandle
@@ -47,20 +46,29 @@ class wyf():
         driver.switch_to.window(windows[-1])
         print(driver.current_window_handle)
         print(driver.title)
-        js = 'swdjVo.cbt=1231321'
-        driver.execute_script(js)
+        #js = 'swdjVo.cbt=1231321'
+        #driver.execute_script(js)
+        #time.sleep(2)
+        #css = 'css selector'
+        #FindElement(driver, "SwdjElement").get_element("swh").click()
+        #time.sleep(1)
+        # msg = driver.find_element_by_xpath('//ul[@class="aty-select-dropdown-list"][2]')
+        #FindElement(driver, "SwdjElement").get_element("swhlist").click()
+        FindElement(driver, "SwdjElement").get_element("mj").click()
         time.sleep(2)
-        css = 'css selector'
-        driver.find_elements(css, 'input[class$=\'aty-input-default\']')[7]
-        FindElement(driver, "SwdjElement").get_element("bt").send_keys("zxcvzxvzxcvxzv")
-        FindElement(driver, "SwdjElement").get_element("swh").click()
-        time.sleep(1)
-        FindElement(driver, "SwdjElement").get_element("swhlist").click()
-        FindElement(driver, "SwdjElement").get_element("lwdw").send_keys("上海")
-        time.sleep(3)
+        #msg = driver.find_element_by_xpath('//ul[@class="aty-select-dropdown-list"][2]')
+        FindElement(driver, "SwdjElement").get_element("mjlist").click()
+        #FindElement(driver, "SwdjElement").get_element("swh").click()
+        #FindElement(driver, "SwdjElement").get_element("swhlist").click()
+        #FindElement(driver, "SwdjElement").get_element("lwdw").send_keys("上海")
+        #time.sleep(3)
         #FindElement(driver, "SwdjElement").get_element("lwdwlist").click()
-        msg = driver.find_element_by_xpath("//div[contains(@class,'lwdw')]/ul/li[1]")
-        print(msg)
+        #msg = driver.find_element_by_xpath("//div[contains(@class,'lwdw')]/ul/li[1]")
+        #FindElement(driver, "SwdjElement").get_element("mj").click()
+        #time.sleep(1)
+        #msg = driver.find_element_by_xpath("//div[contains(@class,'lwdw')]/ul/li[1]")
+        #msg = FindElement(driver, "SwdjElement").get_element("mjlist")
+        #print(msg)
         time.sleep(3)
 
 
