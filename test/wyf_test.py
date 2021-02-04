@@ -4,7 +4,8 @@ from base.browser_driver import BrowserDriver
 from business.login_business import LoginBusiness
 import time
 from base.find_element import FindElement
-from handle.swdj_handle import PtswHandle
+from handle.swdj_handle import SwdjHandle
+from handle.index_handle import IndexHandle
 class wyf():
 
     def info(self, a, *name, **addr):
@@ -38,7 +39,7 @@ class wyf():
         driver.maximize_window()
         LoginBusiness(driver).login_base("songll", "12345678Aa")
         driver.implicitly_wait(10)
-        PtswHandle(driver).click_ptsw()
+        IndexHandle(driver).click_ptsw()
         c = driver.current_window_handle
         windows = driver.window_handles
         print(c)
@@ -54,10 +55,10 @@ class wyf():
         #time.sleep(1)
         # msg = driver.find_element_by_xpath('//ul[@class="aty-select-dropdown-list"][2]')
         #FindElement(driver, "SwdjElement").get_element("swhlist").click()
-        FindElement(driver, "SwdjElement").get_element("mj").click()
-        time.sleep(2)
+        msg = FindElement(driver, "SwdjElement").get_element("yysx")
+        #time.sleep(2)
         #msg = driver.find_element_by_xpath('//ul[@class="aty-select-dropdown-list"][2]')
-        FindElement(driver, "SwdjElement").get_element("mjlist").click()
+        #FindElement(driver, "SwdjElement").get_element("mjlist").click()
         #FindElement(driver, "SwdjElement").get_element("swh").click()
         #FindElement(driver, "SwdjElement").get_element("swhlist").click()
         #FindElement(driver, "SwdjElement").get_element("lwdw").send_keys("上海")
@@ -68,7 +69,7 @@ class wyf():
         #time.sleep(1)
         #msg = driver.find_element_by_xpath("//div[contains(@class,'lwdw')]/ul/li[1]")
         #msg = FindElement(driver, "SwdjElement").get_element("mjlist")
-        #print(msg)
+        print(msg)
         time.sleep(3)
 
 

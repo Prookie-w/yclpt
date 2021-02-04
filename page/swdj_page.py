@@ -48,3 +48,9 @@ class SwdjPage(object):
 
     def get_fs_element(self):
         return self.find_e.get_element("fs")
+
+    def get_bq_element(self):
+        return self.find_e.get_element("bq")
+
+    def get_yysx_element(self):
+        return self.find_e.get_element("yysx")

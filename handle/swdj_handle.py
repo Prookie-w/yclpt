@@ -33,7 +33,19 @@ class SwdjHandle(object):
         #self.swdj_page.get_mj_element().click()
         time.sleep(1)
         #self.swdj_page.get_mjlist_element().click()
-        self.swdj_page.get_fs_element().send_keys("20")
+        if "fs" in form.keys():
+            num = self.swdj_page.get_fs_element()
+            num.clear()
+            num.send_keys(form.get("fs"))
+        if "bq" in form.keys():
+            self.swdj_page.get_bq_element().send_keys(form.get("bq"))
+
+    def fill_dept(self, yysx, **deptInfo):
+        if yysx == True:
+            self.swdj_page.get_yysx_element().click()
+        else:
+            pass
+
 
     def upload_file(self, file_path):
         self.swdj_page.get_bdsc_element().click()
