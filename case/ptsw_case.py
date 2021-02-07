@@ -12,7 +12,7 @@ import HTMLTestRunner
 class PtswCase(unittest.TestCase):
     @classmethod
     def setUpClass(self):
-        self.driver = BrowserDriver(object).open_browser("Chrome", "http://172.23.22.179:8080/yclpt")
+        self.driver = BrowserDriver(object).open_browser("Chrome", "http://172.23.23.223:8080/yclpt")
         self.driver.maximize_window()
         self.login = LoginBusiness(self.driver)
         self.ptsw = PtswBuiness(self.driver)
@@ -31,8 +31,8 @@ class PtswCase(unittest.TestCase):
 
     def test_ptsw_save(self):
         bt = "wyftest"
-        #file_path = "C:\\Users\\huayu\\Desktop\\nmon16e_mpginc.tar.gz"
-        file_path = "D:\\baiduNetDiskDownload\\test.txt"
+        file_path = "C:\\Users\\huayu\\Desktop\\nmon16e_mpginc.tar.gz"
+        #file_path = "D:\\baiduNetDiskDownload\\test.txt"
         self.ptsw.ptsw_save(bt, file_path, lwdw="上海", lwh="沪", lwhm="（20201124）号", btlx='nbd', fs="20", bq="标签")
 
 

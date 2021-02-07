@@ -54,3 +54,26 @@ class SwdjPage(object):
 
     def get_yysx_element(self):
         return self.find_e.get_element("yysx")
+
+    def get_iframe_element(self):
+        return self.find_e.get_element("iframe")
+
+    def get_xzsx_elemenet(self):
+        return self.find_e.get_element("xzsx")
+
+    def get_szsxbutton_element(self):
+        return self.find_e.get_element("szsxbutton")
+
+    def get_swdj_element(self, ele):
+        return self.find_e.get_element(ele)
+
+    def click_swdj_element(self, ele):
+        self.find_e.get_element(ele).click()
+
+    def send_keys_swdj_element(self, ele, text, clear=True):
+        if clear:
+            self.find_e.get_element(ele).send_keys(text)
+        else:
+            e = self.find_e.get_element(ele)
+            e.clear()
+            e.send_keys(text)
