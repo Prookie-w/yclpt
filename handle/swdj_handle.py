@@ -23,37 +23,35 @@ class SwdjHandle(object):
             time.sleep(1)
             self.swdj_page.click_swdj_element("lwhlist")
         if "lwhm" in form.keys():
-            self.swdj_page.send_keys_swdj_element("lwhm", form.get("lwhm"), False)
+            self.swdj_page.send_keys_swdj_element("lwhm", form.get("lwhm"), True)
         if "btlx" in form.keys():
             if 'psj' == form.get("btlx"):
-                self.swdj_page.get_psj_element().click()
+                self.swdj_page.click_swdj_element("psj")
             elif 'nbd' == form.get("btlx"):
-                self.swdj_page.get_nbd_element().click()
-        self.swdj_page.get_bt_element().send_keys(bt)
-        #self.swdj_page.get_mj_element().click()
+                self.swdj_page.click_swdj_element("nbd")
+        self.swdj_page.send_keys_swdj_element("bt", bt)
+        #self.swdj_page.click_swdj_element("mj")
         time.sleep(1)
-        #self.swdj_page.get_mjlist_element().click()
+        #self.swdj_page.click_swdj_element("mjlist")
         if "fs" in form.keys():
-            num = self.swdj_page.get_fs_element()
-            num.clear()
-            num.send_keys(form.get("fs"))
+            self.swdj_page.send_keys_swdj_element("fs", form.get("fs"), True)
         if "bq" in form.keys():
-            self.swdj_page.get_bq_element().send_keys(form.get("bq"))
+            self.swdj_page.send_keys_swdj_element("bq", form.get("bq"))
 
     def fill_dept(self, yysx, **deptInfo):
         if yysx == True:
-            self.swdj_page.get_yysx_element().click()
-            iframe = self.swdj_page.get_iframe_element()
+            self.swdj_page.click_swdj_element("yysx")
+            iframe = self.swdj_page.get_swdj_element("iframe")
             self.driver.switch_to.frame(iframe)
-            self.swdj_page.get_xzsx_elemenet().click()
-            self.swdj_page.get_szsxbutton_element().click()
+            self.swdj_page.click_swdj_element("xzsx")
+            self.swdj_page.click_swdj_element("szsxbutton")
             self.driver.switch_to.default_content()
         else:
             pass
 
 
     def upload_file(self, file_path):
-        self.swdj_page.get_bdsc_element().click()
+        self.swdj_page.click_swdj_element("bdsc")
         time.sleep(1)
         UploadFile.upload_one(file_path)
 
