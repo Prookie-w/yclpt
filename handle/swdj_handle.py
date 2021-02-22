@@ -29,6 +29,8 @@ class SwdjHandle(object):
                 self.swdj_page.click_swdj_element("psj")
             elif 'nbd' == form.get("btlx"):
                 self.swdj_page.click_swdj_element("nbd")
+            self.swdj_page.click_swdj_element("psld")
+
         self.swdj_page.send_keys_swdj_element("bt", bt)
         #self.swdj_page.click_swdj_element("mj")
         time.sleep(1)
@@ -54,4 +56,10 @@ class SwdjHandle(object):
         self.swdj_page.click_swdj_element("bdsc")
         time.sleep(1)
         UploadFile.upload_one(file_path)
+
+    def save(self):
+        self.swdj_page.click_swdj_element("save")
+
+    def send(self):
+        self.swdj_page.click_swdj_element("send")
 

@@ -7,6 +7,8 @@ from unit.screenshot import ScreenShot
 from business.ptsw_buiness import PtswBuiness
 import os
 import HTMLTestRunner
+import time
+import random
 
 
 class PtswCase(unittest.TestCase):
@@ -27,19 +29,31 @@ class PtswCase(unittest.TestCase):
             if error:
                 case_name = str(method_name).split("(")[0]
                 ScreenShot(self.driver).shot(case_name)
-        self.driver.close()
+        #self.driver.close()
 
     def test_ptsw_save(self):
-        bt = "wyftest"
-        file_path = "C:\\Users\\huayu\\Desktop\\nmon16e_mpginc.tar.gz"
-        #file_path = "D:\\baiduNetDiskDownload\\test.txt"
-        self.ptsw.ptsw_save(bt, file_path, lwdw="上海", lwh="沪", lwhm="（20201124）号", btlx='nbd', fs="20", bq="标签")
+        bt = "savetest" + str(random.randint(0, 999))
+        lwhm = time.strftime("%m%d%H%M%S", time.localtime()) + "号"
+        #file_path = "C:\\Users\\huayu\\Desktop\\nmon16e_mpginc.tar.gz"
+        file_path = "D:\\baiduNetDiskDownload\\test.txt"
+        action = "save"
+        self.ptsw.ptsw_save(bt, file_path, action, lwdw="上海", lwh="沪", lwhm=lwhm, btlx='nbd', fs="20", bq="标签")
+        self.ptsw.cgx()
 
+
+    def ptsw_send(self):
+        bt = "sendtest" + str(random.randint(0, 999))
+        lwhm = time.strftime("%m%d%H%M%S", time.localtime()) + "号"
+        # file_path = "C:\\Users\\huayu\\Desktop\\nmon16e_mpginc.tar.gz"
+        file_path = "D:\\baiduNetDiskDownload\\test.txt"
+        action = "send"
+        self.ptsw.ptsw_save(bt, file_path, action, lwdw="上海", lwh="沪", lwhm=lwhm, btlx='psj', fs="20", bq="标签")
 
 if __name__ == '__main__':
     report_path = os.path.join(os.path.dirname(os.getcwd()), "report", "u_case.html")
     f = open(report_path, 'wb')
     suit = unittest.TestSuite()
-    suit.addTest(PtswCase("test_ptsw_save"))
+    #suit.addTest(PtswCase("test_ptsw_save"))
+    suit.addTest(PtswCase("test_ptsw_send"))
     runner = HTMLTestRunner.HTMLTestRunner(stream=f, title="测试报告", description=u"预处理的测试报告", verbosity=2)
     runner.run(suit)

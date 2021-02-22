@@ -8,3 +8,10 @@ class IndexHandle(object):
 
     def click_ptsw(self):
         self.index_page.get_ptsw_button().send_keys(Keys.ENTER)
+
+    def click_lwycl(self):
+        self.index_page.get_lwycl_button().click()
+
+    def click_cgx(self):
+        print(self.index_page.get_cgx_button())
+        self.index_page.get_cgx_button().click()
