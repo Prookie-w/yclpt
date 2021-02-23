@@ -34,8 +34,8 @@ class PtswCase(unittest.TestCase):
     def test_ptsw_save(self):
         bt = "savetest" + str(random.randint(0, 999))
         lwhm = time.strftime("%m%d%H%M%S", time.localtime()) + "号"
-        #file_path = "C:\\Users\\huayu\\Desktop\\nmon16e_mpginc.tar.gz"
-        file_path = "D:\\baiduNetDiskDownload\\test.txt"
+        file_path = "C:\\Users\\huayu\\Desktop\\nmon16e_mpginc.tar.gz"
+        #file_path = "D:\\baiduNetDiskDownload\\test.txt"
         action = "save"
         self.ptsw.ptsw_save(bt, file_path, action, lwdw="上海", lwh="沪", lwhm=lwhm, btlx='nbd', fs="20", bq="标签")
         self.ptsw.cgx()
@@ -53,7 +53,7 @@ if __name__ == '__main__':
     report_path = os.path.join(os.path.dirname(os.getcwd()), "report", "u_case.html")
     f = open(report_path, 'wb')
     suit = unittest.TestSuite()
-    #suit.addTest(PtswCase("test_ptsw_save"))
-    suit.addTest(PtswCase("test_ptsw_send"))
+    suit.addTest(PtswCase("test_ptsw_save"))
+    #suit.addTest(PtswCase("test_ptsw_send"))
     runner = HTMLTestRunner.HTMLTestRunner(stream=f, title="测试报告", description=u"预处理的测试报告", verbosity=2)
     runner.run(suit)

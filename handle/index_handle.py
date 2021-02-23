@@ -7,11 +7,13 @@ class IndexHandle(object):
         self.index_page = IndexPage(driver)
 
     def click_ptsw(self):
-        self.index_page.get_ptsw_button().send_keys(Keys.ENTER)
+        self.index_page.send_keys_index_element("ptsw_button", Keys.ENTER)
 
     def click_lwycl(self):
-        self.index_page.get_lwycl_button().click()
+        self.index_page.click_index_element("lwycl_button")
 
     def click_cgx(self):
-        print(self.index_page.get_cgx_button())
-        self.index_page.get_cgx_button().click()
+        self.index_page.click_index_element("cgx_button")
+
+    def get_ele(self, ele):
+        return self.index_page.get_index_element(ele)

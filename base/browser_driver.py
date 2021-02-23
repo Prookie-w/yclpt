@@ -31,5 +31,5 @@ class BrowserDriver():
             print("参数错误")
         self.driver.get(url)
         self.driver.maximize_window()
-        self.driver.implicitly_wait(5)
+        self.driver.implicitly_wait(10)
         return self.driver

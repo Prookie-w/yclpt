@@ -3,6 +3,9 @@
 from handle.swdj_handle import SwdjHandle
 from handle.index_handle import IndexHandle
 import time
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 class PtswBuiness(object):
     def __init__(self, driver):
@@ -26,14 +29,20 @@ class PtswBuiness(object):
             self.swdj.save()
         elif action == "send":
             self.swdj.send()
-            time.sleep(5)
         self.driver.switch_to.window(windows[0])
+
+    def test(self):
+        return False
 
     def cgx(self):
         self.index.click_lwycl()
-        time.sleep(3)
+        #locator = (By.CLASS_NAME, "aty-tabs-tab")
+        #WebDriverWait(self.driver, 10, 2).until(EC.presence_of_element_located(locator))
+        time.sleep(1)
         self.index.click_cgx()
-        time.sleep(3)
+        time.sleep(1)
+
+
 
 
 
