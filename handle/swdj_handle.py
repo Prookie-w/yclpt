@@ -54,7 +54,7 @@ class SwdjHandle(object):
 
     def upload_file(self, file_path):
         self.swdj_page.click_swdj_element("bdsc")
-        time.sleep(1)
+        time.sleep(2)
         UploadFile.upload_one(file_path)
 
     def save(self):

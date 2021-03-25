@@ -25,6 +25,7 @@ class PtswBuiness(object):
         self.swdj.fill_dept(True)
         #上传附件
         self.swdj.upload_file(file_path)
+        time.sleep(2)
         if action == "save":
             self.swdj.save()
         elif action == "send":
@@ -34,13 +35,28 @@ class PtswBuiness(object):
     def test(self):
         return False
 
-    def cgx(self):
+    def check(self, bt, btlx):
+        #拼接标题
+        if 'psj' == btlx:
+            bt1 = "批示件:" + bt
+        elif 'nbd' == btlx:
+            bt1 = "拟办单1:" + bt
         self.index.click_lwycl()
         #locator = (By.CLASS_NAME, "aty-tabs-tab")
         #WebDriverWait(self.driver, 10, 2).until(EC.presence_of_element_located(locator))
-        time.sleep(1)
+        time.sleep(2)
         self.index.click_cgx()
-        time.sleep(1)
+        path = "//div[starts-with(@class,'aty-tabs-content')]/div[2]/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[4]/div"
+        locator = (By.XPATH, path)
+        wait = WebDriverWait(self.driver, 6, 2)
+        element = wait.until(EC.presence_of_element_located(locator))
+        if element.text ==bt1:
+            return True
+        else:
+            return False
+
+
+
 
 
 
