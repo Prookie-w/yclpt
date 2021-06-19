@@ -72,13 +72,24 @@ class wyf():
         print(msg)
         time.sleep(3)
 
+    def sum(self, *nums):
+        for i in nums:
+            print(i)
 
-
+    def Deaf(self, school, classes, **other):
+        print('学校:', school, '\n', '班级:', classes, '\n', '学生信息:', other)
 
 if __name__ == '__main__':
     #wyf().info(10, 1, 2, 3, 4, 5, heida=31, suning=22, huayu=77)
-    wyf().css_test()
+    #wyf().css_test()
     #wyf().css()
+    l_xiaoming = {"name": "小明", "age": 18}
+    print(l_xiaoming.get("name"))
+    #wyf().Deaf("清华", "大一", **{"name": "小明", "age": 18})
+    l = (1,2,3)
+    wyf().sum(*l)
+
+
 
 
 
